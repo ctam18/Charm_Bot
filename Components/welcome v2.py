@@ -20,7 +20,7 @@ def welcome():
 
 def main():
      '''
-    Purpose: To generate random name from the list and print out
+    Purpose: To run all functions
     a welcome message 
     Parameters: None
     Returns: None 
