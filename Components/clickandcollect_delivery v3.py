@@ -3,14 +3,8 @@
 # Bug - need to make it so that it only accepts 1 or 2
 
 print ("Is your order for click and collect or delivery?")
-
 print ("For click and collect pleaser enter 1")
 print ("For delivery please enter 2")
-
-
-
-
-
 while True:
     try:
         delivery = int(input("Please enter a number "))
