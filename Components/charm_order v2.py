@@ -23,8 +23,16 @@ list()
 num_charms = 0
 
 
-
-num_charms = int(input("How many Charms do you want to order? "))
+while True:
+    try:
+        num_charms = int(input("How many Charms do you want to order? "))
+        if num_charms >= 1 and num_charms <= 5:
+            break
+        else:
+            print("Your order must be between 1 and 5")
+    except ValueError:
+        print("That is not a valid number")
+        print("Please enter a number between 1 and 5")
 
 
 
@@ -41,15 +49,4 @@ for item in range(num_charms):
         print("{} ${:.2f}" .format(charm_names[charm_ordered],charm_prices[charm_ordered]))
         num_charms = num_charms-1
 
-print(order_list)
-print(order_cost)
 
-
-
-
-
-# Countdown until all charms are ordered
-
-
-
-# Print order
