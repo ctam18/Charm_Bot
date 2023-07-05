@@ -1,4 +1,10 @@
 # Charm bot program 
+# 05/07/23
+#Bugs - phone number input allows letters
+#     - Name input allows numbers
+
+
+
 import random 
 from random import randint
 
