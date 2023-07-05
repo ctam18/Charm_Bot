@@ -15,7 +15,6 @@ while not valid:
         print("Sorry this cannot be blank")
 
 
-
 #customer phone number not blank
 valid = False
 while not valid:
@@ -25,3 +24,5 @@ while not valid:
         break
     else:
         print("Sorry this cannot be blank")
+
+print (customer_details)
