@@ -3,13 +3,17 @@
 #Bugs - phone number input allows letters
 #     - Name input allows numbers
 
-
-
 import random 
 from random import randint
 
 # List of random names
 names = ["Mark", "Pheobe", "Sally", "Michael", "Niall", "Rocky", "Abby", "Ross", "Ian", "Aroha"]
+# List of charm names
+charm_names = ['Ariel Charm', 'Mickey & Minnie Padlock Charm', 'Dancing Groot Charm', 'Spider-Man Charm', 'Star Wars 3D Charm', 'BB-8 Charm', 'Compass Medallion Charm', 
+               'Broken Heart Charm', 'Glass Sea Turtle Charm', 'Kiwi and Fern Charm', 'Pave Heart Charm', 'Circle of Pave Charm' ]
+# List of charm prices
+charm_prices = [129, 129, 89, 119, 30, 40, 59, 45, 89, 59, 59, 79]
+
 # Customer details dictionary
 customer_details = {}
 
@@ -95,8 +99,15 @@ def delivery_info():
     question = ("Please enter your suburb ")
     customer_details['suburb'] = not_blank(question )
     print (customer_details['suburb'])
-    print(customer_details)
 
+
+
+# Charm list
+def list():
+    number_charms = 12
+
+    for count in range (number_charms):
+        print("{} {} ${:.2f}" .format(count+1, charm_names[count],charm_prices[count]))
 
 
 # Choose total number of Charms - max 5
@@ -106,7 +117,6 @@ def delivery_info():
 
 
 
-# Charm List 
 
 
 
@@ -148,5 +158,6 @@ def main():
     '''
     welcome()
     order_type()
+    list()
 
 main()

@@ -3,10 +3,11 @@ charm_names = ['Ariel Charm', 'Mickey & Minnie Padlock Charm', 'Dancing Groot Ch
 
 charm_prices = [129, 129, 89, 119, 30, 40, 59, 45, 89, 59, 59, 79]
 
-number_charms = 12
 
-#print("How manu charms would you like to order? ")
-#num_charms = int(input())
+def list():
+    number_charms = 12
 
-for count in range (number_charms):
-    print(count, charm_names[count],charm_prices[count])
+    for count in range (number_charms):
+        print("{} {} ${:.2f}" .format(count+1, charm_names[count],charm_prices[count]))
+
+list()
