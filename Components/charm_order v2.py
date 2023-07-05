@@ -36,13 +36,19 @@ while True:
 
 
 
-print(num_charms)
-
 # Choose charm from menu
-print("Please choose your Charms by entering the number from the list")
 for item in range(num_charms):
     while num_charms > 0:
-        charm_ordered = int(input()) 
+        while True:
+            try:
+                charm_ordered = int(input("Please choose your Charms by entering the number from the list "))
+                if charm_ordered >= 1 and charm_ordered <= 12:
+                    break
+                else:
+                    print("Your charm order must be between 1 and 12")
+            except ValueError:
+                print("That is not a valid number")
+                print("Please enter a number between 1 and 12")
         charm_ordered = charm_ordered -1
         order_list.append(charm_names[charm_ordered]) 
         order_cost.append(charm_prices[charm_ordered])
