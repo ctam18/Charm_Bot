@@ -49,8 +49,9 @@ def welcome():
 
 # List for click and collect or delivery
 def order_type():
+    del_click = ""
     print ("Is your order for click and collect or delivery?")
-    print ("For click and collect pleaser enter 1")
+    print ("For click and collect please enter 1")
     print ("For delivery please enter 2")
     while True:
         try:
@@ -58,17 +59,20 @@ def order_type():
             if delivery >= 1 and delivery <= 2:
                 if delivery == 1:
                     print ("Click and collect")
+                    del_click = "Click and Collect"
                     collect_info()
                     break
                 elif delivery == 2:
                     print ("Delivery")
                     delivery_info()
+                    del_click = "delivery"
                     break
             else: 
                 print("Number must be 1 or 2")
         except ValueError:
             print("That is not a valid number")
             print("Please enter 1 or 2")
+    return del_click
 
 
 # CLick and collect information - name and phone number
@@ -152,6 +156,25 @@ def order_charm():
 
 
 # Print order out - including if order is del or click and collect and names and prices of each charm - total cost including any delivery charge
+def print_order(del_click):
+    print()
+    total_cost = sum(order_cost)
+    print ("Customer Details")
+    if del_click == "Click and Collect":
+        print("Your order is for Click and Collect")
+        print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']}")
+    elif del_click == "delivery":
+         print("Your order is for Delivery")
+         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+    print()
+    print("Order Details")
+    count = 0
+    for item in order_list:
+        print("Ordered: {}   Cost: ${:.2f}".format(item, order_cost[count]))
+        count = count+1
+    print()
+    print("Order Cost Details")
+    print(f"${total_cost:.2f}")
 
 
 
@@ -179,8 +202,9 @@ def main():
     Returns: None 
     '''
     welcome()
-    order_type()
+    del_click = order_type()
     list()
     order_charm()
+    print_order(del_click)
 
 main()
