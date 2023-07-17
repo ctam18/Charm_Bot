@@ -26,13 +26,13 @@ num_charms = 0
 while True:
     try:
         num_charms = int(input("How many Charms do you want to order? "))
-        if num_charms >= 1 and num_charms <= 5:
+        if num_charms >= 1 and num_charms <= 12:
             break
         else:
-            print("Your order must be between 1 and 5")
+            print("Your order must be between 1 and 12")
     except ValueError:
         print("That is not a valid number")
-        print("Please enter a number between 1 and 5")
+        print("Please enter a number between 1 and 12")
 
 
 

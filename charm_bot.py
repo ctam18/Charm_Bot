@@ -127,13 +127,13 @@ def order_charm():
     while True:
         try:
             num_charms = int(input("How many Charms do you want to order? "))
-            if num_charms >= 1 and num_charms <= 5:
+            if num_charms >= 1 and num_charms <= 12:
                 break
             else:
-                print("Your order must be between 1 and 5")
+                print("Your order must be between 1 and 12")
         except ValueError:
             print("That is not a valid number")
-            print("Please enter a number between 1 and 5")
+            print("Please enter a number between 1 and 12")
     # Choose charm from menu
     for item in range(num_charms):
         while num_charms > 0:
@@ -164,8 +164,7 @@ def print_order(del_click):
         print("Your order is for Click and Collect")
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']}")
     elif del_click == "delivery":
-         print("Your order is for Delivery a $9.00 delivery charge applies")
-         total_cost = total_cost + 9
+         print("Your order is for Delivery a $9.00 delivery charge applies if order has 5 or more items")
          print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
     print("Your Order Details")
@@ -174,8 +173,14 @@ def print_order(del_click):
         print("Ordered: {}   Cost: ${:.2f}".format(item, order_cost[count]))
         count = count+1
     print()
+    if len(order_list) >= 5:
+        print("Your order will be delivered to you for free")
+    elif len(order_list) < 5:
+        print("Due to the fact that you have ordered less than 5 items, there is a $9.00 delivey charge")
+        total_cost = total_cost + 9
     print("Order Cost Details")
     print(f"${total_cost:.2f}")
+
 
 
 
