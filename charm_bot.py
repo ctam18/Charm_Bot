@@ -197,11 +197,13 @@ def confirm_cancel():
                     print ("Order Confirmed")
                     print ("Your Order has been sent to our shop")
                     print ("Your Jewelry Charms will be with you shortly")
+                    new_exit()
                     break
 
                 elif confirm == 2:
                     print ("Your Order as been Cancelled")
                     print ("You can restart your order or exit the BOT")
+                    new_exit()
                     break
             else: 
                 print("Number must be 1 or 2")

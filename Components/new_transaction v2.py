@@ -22,7 +22,6 @@ while True:
                 order_list.clear()
                 order_cost.clear()
                 customer_details.clear()
-                main()
                 break
 
             elif confirm == 2:
@@ -39,5 +38,3 @@ while True:
         print("Please enter 1 or 2")
 
 
-def main():
-    print("Start again")
