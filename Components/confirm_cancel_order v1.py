@@ -6,11 +6,11 @@ while True:
         confirm = int(input("Please enter a number "))
         if confirm >= 1 and confirm <= 2:
             if confirm == 1:
-                print ("Click and collect")
+                print ("Order Confirmed")
                 break
 
             elif confirm == 2:
-                print ("Confirm")
+                print ("Order Cancelled")
                 break
         else: 
             print("Number must be 1 or 2")
