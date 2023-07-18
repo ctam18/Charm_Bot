@@ -164,8 +164,12 @@ def print_order(del_click):
         print("Your order is for Click and Collect")
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']}")
     elif del_click == "delivery":
-         print("Your order is for Delivery a $9.00 delivery charge applies if order has 5 or more items")
-         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+        if len(order_list) >= 12:
+            print("Your order will be delivered to you for free")
+        elif len(order_list) < 12:
+            print("Due to the fact that you have ordered less than 5 items, there is a $9.00 surcharge for delivery")
+            total_cost = total_cost + 9
+        print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
     print("Your Order Details")
     count = 0
@@ -173,11 +177,6 @@ def print_order(del_click):
         print("Ordered: {}   Cost: ${:.2f}".format(item, order_cost[count]))
         count = count+1
     print()
-    if len(order_list) >= 12:
-        print("Your order will be delivered to you for free")
-    elif len(order_list) < 12:
-        print("Due to the fact that you have ordered less than 5 items, there is a $9.00 surcharge for delivery")
-        total_cost = total_cost + 9
     print("Order Cost Details")
     print(f"${total_cost:.2f}")
 
