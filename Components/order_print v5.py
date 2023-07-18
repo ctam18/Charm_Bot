@@ -16,9 +16,9 @@ def print_order():
         print("Ordered: {}   Cost: ${:.2f}".format(item, order_cost[count]))
         count = count+1
     print()
-    if len(order_list) >= 12:
+    if len(order_list) >= 5:
         print("Your order will be delivered to you for free")
-    elif len(order_list) < 12:
+    elif len(order_list) < 5:
         print("Due to the fact that you have ordered less than 5 items, there is a $9.00 surcharge for delivery")
         total_cost = total_cost + 9
     print("Order Cost Details")

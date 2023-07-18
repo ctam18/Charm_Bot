@@ -164,9 +164,9 @@ def print_order(del_click):
         print("Your order is for Click and Collect")
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']}")
     elif del_click == "delivery":
-        if len(order_list) >= 12:
+        if len(order_list) >= 5:
             print("Your order will be delivered to you for free")
-        elif len(order_list) < 12:
+        elif len(order_list) < 5:
             print("Due to the fact that you have ordered less than 5 items, there is a $9.00 surcharge for delivery")
             total_cost = total_cost + 9
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
