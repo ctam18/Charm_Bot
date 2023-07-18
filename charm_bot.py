@@ -186,7 +186,7 @@ def print_order(del_click):
 # Ability to cancel or proceed with order
 def confirm_cancel():
     print ("Please Confirm Your Order?")
-    print ("To confirm pleaser enter 1")
+    print ("To confirm please enter 1")
     print ("To cancel please enter 2")
     while True:
         try:
