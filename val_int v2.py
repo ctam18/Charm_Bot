@@ -1,17 +1,20 @@
-def order_type():
+def order_type(low,high,question):
     while True:
         try:
-            num = int(input())
-            if num >= 1 and num <= 2:
+            num = int(input(question))
+            if num >= low and num <= high:
                 return num
             else:
-                print("Number must be 1 or 2")
+                print(f"Please enter a number between {low} and {high}")
         except ValueError:
             print("That was not a valid input")
-            print("Please enter 1 or 2 ")
+            print(f"Please enter a number between {low} and {high} ")
 
-print ("Please enter a number between 1 and 2")
+LOW = 1
+HIGH = 2
+question = (f"Enter a number between {LOW} and {HIGH} ")
 
-answer = order_type()
+
+answer = order_type(LOW,HIGH,question)
 
 print(answer)
