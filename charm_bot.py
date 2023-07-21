@@ -33,6 +33,20 @@ def not_blank(question):
         else:
             print("This cannot be blank")
 
+# Validates inputs to check if they are blank
+def val_int(low,high,question):
+    while True:
+        try:
+            num = int(input(question))
+            if num >= low and num <= high:
+                return num
+            else:
+                print(f"Please enter a number between {low} and {high}")
+        except ValueError:
+            print("That was not a valid input")
+            print(f"Please enter a number between {low} and {high} ")
+
+
 # Welcome message with random name
 def welcome():
     '''
@@ -51,32 +65,26 @@ def welcome():
 # List for click and collect or delivery
 def order_type():
     del_click = ""
+    LOW = 1
+    HIGH = 2
+    question = (f"Enter a number between {LOW} and {HIGH} ")
     print ("Is your order for click and collect or delivery?")
     print ("For click and collect please enter 1")
     print ("For delivery please enter 2")
-    while True:
-        try:
-            delivery = int(input("Please enter a number "))
-            if delivery >= 1 and delivery <= 2:
-                if delivery == 1:
-                    print ("Click and collect")
-                    del_click = "Click and Collect"
-                    collect_info()
-                    break
-                elif delivery == 2:
-                    print ("Delivery")
-                    delivery_info()
-                    del_click = "delivery"
-                    break
-            else: 
-                print("Number must be 1 or 2")
-        except ValueError:
-            print("That is not a valid number")
-            print("Please enter 1 or 2")
+    delivery = val_int(LOW,HIGH,question)
+    if delivery == 1:
+        print()
+        print ("Click and collect")
+        del_click = "Click and Collect"
+        collect_info()
+    else:
+        print ("Delivery")
+        delivery_info()
+        del_click = "delivery"
     return del_click
 
 
-# CLick and collect information - name and phone number
+# Click and collect information - name and phone number
 def collect_info():
     question = ("Please enter your name ")
     customer_details['name'] = not_blank(question )
@@ -125,16 +133,12 @@ def list():
 def order_charm():
     # Ask for total number of charms for order
     num_charms = 0
-    while True:
-        try:
-            num_charms = int(input("How many Charms do you want to order? "))
-            if num_charms >= 1 and num_charms <= 12:
-                break
-            else:
-                print("Your order must be between 1 and 12")
-        except ValueError:
-            print("That is not a valid number")
-            print("Please enter a number between 1 and 12")
+    LOW = 1
+    HIGH = 12
+    question = (f"Enter a number between {LOW} and {HIGH} ")
+    print("How many Charms do you want to order? ")
+    num_charms = val_int(LOW,HIGH,question)
+
     # Choose charm from menu
     for item in range(num_charms):
         while num_charms > 0:
