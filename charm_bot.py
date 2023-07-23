@@ -9,6 +9,11 @@
 import sys
 import random 
 from random import randint
+# Constants
+LOW = 1
+HIGH = 2
+
+
 
 # List of random names
 names = ["Mark", "Pheobe", "Sally", "Michael", "Niall", "Rocky", "Abby", "Ross", "Ian", "Aroha"]
@@ -68,8 +73,6 @@ def welcome():
 # List for click and collect or delivery
 def order_type():
     del_click = ""
-    LOW = 1
-    HIGH = 2
     question = (f"Enter a number between {LOW} and {HIGH} ")
     print ("Is your order for click and collect or delivery?")
     print ("For click and collect please enter 1")
@@ -136,13 +139,13 @@ def list():
 def order_charm():
     # Ask for total number of charms for order
     num_charms = 0
-    LOW = 1
-    HIGH = 12
+    NUM_LOW = 1
+    NUM_HIGH = 12
     MENU_LOW = 1
     MENU_HIGH = 12
-    question = (f"Enter a number between {LOW} and {HIGH} ")
+    question = (f"Enter a number between {NUM_LOW} and {NUM_HIGH} ")
     print("How many Charms do you want to order? ")
-    num_charms = val_int(LOW,HIGH,question)
+    num_charms = val_int(NUM_LOW,NUM_HIGH,question)
     # Choose charm from menu
     for item in range(num_charms):
         while num_charms > 0:
@@ -188,8 +191,6 @@ def print_order(del_click):
 
 # Ability to cancel or proceed with order
 def confirm_cancel():
-    LOW = 1
-    HIGH = 2
     question = (f"Enter a number between {LOW} and {HIGH} ")
     print ("Please Confirm Your Order?")
     print ("To confirm please enter 1")
@@ -208,14 +209,9 @@ def confirm_cancel():
         new_exit()
 
 
-
-
-
-
 # Option for new order or to exit
 def new_exit():
-    LOW = 1
-    HIGH = 2
+    print()
     question = (f"Enter a number between {LOW} and {HIGH} ")
     print ("Do you want to start another Order or Exit")
     print ("To start another order enter 1")
