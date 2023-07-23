@@ -12,8 +12,8 @@ from random import randint
 # Constants
 LOW = 1
 HIGH = 2
-
-
+PH_LOW = 7
+PH_HIGH = 10
 
 # List of random names
 names = ["Mark", "Pheobe", "Sally", "Michael", "Niall", "Rocky", "Abby", "Ross", "Ian", "Aroha"]
@@ -41,7 +41,7 @@ def not_blank(question):
         else:
             print("This cannot be blank")
 
-
+# validates string input to check if they are alphaetical
 def check_string(question):
     while True:
         response = input(question)
@@ -63,6 +63,23 @@ def val_int(low,high,question):
         except ValueError:
             print("That was not a valid input")
             print(f"Please enter a number between {low} and {high} ")
+
+# Valdates phone number to check if it is between 7 and 10 digits
+def check_phone(question, PH_LOW, PH_HIGH):
+    while True:
+        try: 
+            num = int(input(question))
+            test_num = num
+            count = 0
+            while test_num > 0:
+                test_num = test_num//10
+                count = count + 1
+            if count >= PH_LOW and count <= PH_HIGH:
+                return str(num)
+            else:
+                print("NZ phone numbers have between 7 and 10 digits")
+        except ValueError:
+            print("Please enter a number")
 
 
 # Welcome message with random name
@@ -107,7 +124,7 @@ def collect_info():
     print (customer_details['name'])
 
     question = ("Please enter your phone number ")
-    customer_details['phone'] = not_blank(question )
+    customer_details['phone'] = check_phone(question, PH_LOW, PH_HIGH)
     print (customer_details['phone'])
     print(customer_details)
 
@@ -119,7 +136,7 @@ def delivery_info():
     print (customer_details['name'])
 
     question = ("Please enter your phone number ")
-    customer_details['phone'] = not_blank(question )
+    customer_details['phone'] = check_phone(question, PH_LOW, PH_HIGH)
     print (customer_details['phone'])
 
     question = ("Please enter your house number ")
@@ -183,11 +200,11 @@ def print_order(del_click):
         if len(order_list) >= 5:
             print("Your order will be delivered to you for free")
         elif len(order_list) < 5:
-            print("Due to the fact that you have ordered less than 5 items, there is a $9.00 surcharge for delivery")
             total_cost = total_cost + 9
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
     print("Your Order Details")
+    print("Due to the fact that you have ordered less than 5 items, there is a $9.00 surcharge for delivery")
     count = 0
     for item in order_list:
         print("Ordered: {}   Cost: ${:.2f}".format(item, order_cost[count]))
